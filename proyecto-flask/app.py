@@ -9,48 +9,47 @@ app = Flask(__name__, template_folder='templates')
 def hello_world():
     return "<p>Hello, World!</p>"
 
-@app.route("/listar_barrios")
-def los_barrios():
+
+@app.route("/personas")
+def personas():
     """
     """
-    r = requests.get("http://127.0.0.1:8000/api/listar_barrios/",
+    r = requests.get("http://127.0.0.1:8000/api/personas/",
+            auth=(usuario, clave))
+    personas = json.loads(r.content)['results']
+    numero_personas = json.loads(r.content)['count']
+    return render_template("personas.html", personas=personas,
+    numero_personas=numero_personas)
+
+@app.route("/barrios")
+def barrios():
+    """
+    """
+    r = requests.get("http://127.0.0.1:8000/api/barrios/",
+            auth=(usuario, clave))
+    barrios = json.loads(r.content)['results']
+    numero_barrios = json.loads(r.content)['count']
+    return render_template("barrios.html", barrios=barrios,
+    numero_barrios=numero_barrios)
+
+@app.route("/localesCo")
+def localesCo():
+    """
+    """
+    r = requests.get("http://127.0.0.1:8000/api/localCo/",
             auth=(usuario, clave))
     datos = json.loads(r.content)['results']
     numero = json.loads(r.content)['count']
-    return render_template("listar_barrios.html", datos=datos,
+    return render_template("localesCo.html", datos=datos,
     numero=numero)
 
-
-@app.route("/listar_personas")
-def las_personas():
+@app.route("/localesRe")
+def localesRe():
     """
     """
-    r = requests.get("http://127.0.0.1:8000/api/listar_personas/",
+    r = requests.get("http://127.0.0.1:8000/api/localRe/",
             auth=(usuario, clave))
     datos = json.loads(r.content)['results']
     numero = json.loads(r.content)['count']
-    return render_template("listar_personas.html", datos=datos,
-    numero=numero)
-
-
-@app.route("/listar_locales_comida")
-def los_losLocalesComida():
-    """
-    """
-    r = requests.get("http://127.0.0.1:8000/api/listar_locales_comida/",
-            auth=(usuario, clave))
-    datos = json.loads(r.content)['results']
-    numero = json.loads(r.content)['count']
-    return render_template("listar_locales_comida.html", datos=datos,
-    numero=numero)
-
-@app.route("/listar_locales_repuestos")
-def los_losLocalesRepuestos():
-    """
-    """
-    r = requests.get("http://127.0.0.1:8000/api/listar_locales_repuestos/",
-            auth=(usuario, clave))
-    datos = json.loads(r.content)['results']
-    numero = json.loads(r.content)['count']
-    return render_template("listar_locales_repuestos.html", datos=datos,
+    return render_template("localesRe.html", datos=datos,
     numero=numero)

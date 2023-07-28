@@ -1,0 +1,134 @@
+/* Resetear estilos por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F2F2F2;
+    padding: 20px;
+  }
+  
+  header {
+    background-color: #034275;
+    color: #FFF;
+    padding: 20px;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  nav ul li a {
+    color: #FFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: #99CCFF;
+  }
+  
+  section {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 15px;
+    border-bottom: 1px solid #E5E5E5;
+  }
+  
+  tr:hover {
+    background-color: #F5F5F5;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="email"] {
+    width: 40%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #000000;
+  
+  }
+  
+  input[type="text"]:focus,
+  input[type="number"]:focus,
+  input[type="email"]:focus {
+    border-color: #99CCFF;
+    box-shadow: 0 0 5px rgba(153, 204, 255, 0.5);
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .colorceldsprintfa {
+    background-color: #9999FF;
+    color: #000000;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .miformulario {
+    width: 100%;
+  }
+  
+  .errorlist li {
+    color: red;
+  }
+  
+  footer {
+    background-color: #5E5E5E;
+    color: #FFF;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .wrapper-dos-columnas {
+    margin: 15px;
+  }
+  
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .column {
+    flex: 1;
+  }
+  
+  .izquierda-column,
+  .derecha-column {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+  }
+  
+  .izquierda-column h2,
+  .derecha-column h2 {
+    margin-bottom: 10px;
+    color: #034275;
+  }
+  

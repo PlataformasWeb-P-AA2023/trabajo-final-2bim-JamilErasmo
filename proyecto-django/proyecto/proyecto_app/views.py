@@ -92,7 +92,7 @@ def eliminar_Persona(request, id):
     persona.delete()
     return redirect(index1)
 
-##################################################################################
+#
 
 def crear_LocalComida(request):
     if request.method=='POST':
@@ -126,7 +126,7 @@ def eliminar_LocalComida(request, id):
     localComida.delete()
     return redirect(index1)
 
-##################################################################################
+#
 
 def crear_LocalRespuestos(request):
     if request.method=='POST':
@@ -161,7 +161,7 @@ def eliminar_LocalRespuestos(request, id):
     localRespuestos.delete()
     return redirect(index2)
 
-########################################################################33
+#
 
 class BarrioViewSet(viewsets.ModelViewSet):
     queryset = Barrio.objects.all()

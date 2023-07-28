@@ -1,51 +1,34 @@
+
 from django.db import models
 
-# Definir el modelo Barrio
+# Create your models here.
 class Barrio(models.Model):
     nombre = models.CharField(max_length=100)
-    siglas = models.CharField(max_length=10)
 
-    def __str__(self):
+    def _str_(self):
         return self.nombre
 
-# Definir el modelo Persona
+
 class Persona(models.Model):
-    nombres = models.CharField(max_length=100)
-    apellidos = models.CharField(max_length=100)
-    cedula = models.CharField(max_length=10, unique=True)
-    correo = models.EmailField()
+    nombre = models.CharField(max_length=30)
+    apellido = models.CharField(max_length=30)
+    cedula = models.IntegerField()
+    correo = models.CharField(max_length=20)
 
-    def __str__(self):
-        return f"{self.nombres} {self.apellidos}"
+    def _str_(self):
+        return "%s %s - Cédula: %d - Correo: %s" % (self.nombre, self.apellido, self.cedula, self.correo)
 
-# Definir el modelo LocalComida
+
 class LocalComida(models.Model):
-    propietario = models.ForeignKey(Persona, on_delete=models.CASCADE)
-    direccion = models.CharField(max_length=200)
-    barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE)
+    ventas_proyectadas_mes = models.FloatField()
     tipo_comida = models.CharField(max_length=100)
-    ventas_proyectadas = models.DecimalField(max_digits=10, decimal_places=2)
-    pago_permiso = models.DecimalField(max_digits=10, decimal_places=2, editable=False)
-
-    def save(self, *args, **kwargs):
-        self.pago_permiso = self.ventas_proyectadas * 0.8
-        super(LocalComida, self).save(*args, **kwargs)
-
-    def __str__(self):
-        return f"Local de Comida - {self.propietario} - {self.tipo_comida}"
-
-# Definir el modelo LocalRepuestos
-class LocalRepuestos(models.Model):
-    propietario = models.ForeignKey(Persona, on_delete=models.CASCADE)
     direccion = models.CharField(max_length=200)
-    barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE)
-    valor_mercaderia = models.DecimalField(max_digits=10, decimal_places=2)
-    valor_pago_permiso = models.DecimalField(max_digits=10, decimal_places=2, editable=False)
+    propietario = models.CharField(max_length=100)
+    barrio = models.CharField(max_length=100)
 
-    def save(self, *args, **kwargs):
-        self.valor_pago_permiso = self.valor_mercaderia * 0.001
-        super(LocalRepuestos, self).save(*args, **kwargs)
-
-    def __str__(self):
-        return f"Local de Repuestos - {self.propietario}"
+class LocalRepuestos(models.Model):
+    # ... (el resto de tu código)
+    
+    def _str_(self):
+        return "%s - %s - %s - %.2f" % (self.propietario, self.direccion, self.barrio, self.valor_total_mercaderia)
 
