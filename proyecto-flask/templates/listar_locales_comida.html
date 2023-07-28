@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Locales de Comida</title>
+</head>
+<body>
+    <h1>Locales de Comida</h1>
+    <ul>
+        {% for local in locales_comida %}
+            <li>
+                Propietario: {{ local.propietario.nombres }} {{ local.propietario.apellidos }}<br>
+                Dirección: {{ local.direccion }}<br>
+                Barrio: {{ local.barrio.nombre }} ({{ local.barrio.siglas }})<br>
+                Tipo de comida: {{ local.tipo_comida }}<br>
+                Ventas proyectadas al mes: {{ local.ventas_proyectadas }}<br>
+                Pago de permiso: {{ local.pago_permiso }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

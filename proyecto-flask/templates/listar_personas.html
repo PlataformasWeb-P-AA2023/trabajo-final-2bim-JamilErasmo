@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personas</title>
+</head>
+<body>
+    <h1>Personas</h1>
+    <ul>
+        {% for persona in personas %}
+            <li>
+                Nombres: {{ persona.nombres }}<br>
+                Apellidos: {{ persona.apellidos }}<br>
+                Cédula: {{ persona.cedula }}<br>
+                Correo: {{ persona.correo }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

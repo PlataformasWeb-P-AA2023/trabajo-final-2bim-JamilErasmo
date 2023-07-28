@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barrios</title>
+</head>
+<body>
+    <h1>Barrios</h1>
+    <ul>
+        {% for barrio in barrios %}
+            <li>
+                Nombre del barrio: {{ barrio.nombre }}<br>
+                Siglas: {{ barrio.siglas }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

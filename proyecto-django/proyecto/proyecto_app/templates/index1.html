@@ -1,0 +1,47 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Listado de Locales de Comida
+{% endblock %}
+
+{% block content %}
+<h3>Número de Locales {{ num_localComida}}</h3>
+
+<table id="tabla_datos">
+
+  <thead>
+    <tr>
+      <th>Propietario</th>
+      <th>Tipo de Comida</th>
+      <th>Valor de ventas proyectado</th>
+      <th>Direccion</th>
+      <th>Barrio</th>
+      <th>Valor del permiso</th>
+      <th>Opciones</th>
+    </tr>
+  </thead>
+
+  {% for l in localComida %}
+  <tr>
+    <td>{{l.propietario.nombre}}</td>
+    <td>{{l.tipo_comida}}</td>
+    <td>{{l.ventas_proyectadas_mes}}</td>
+    <td>{{l.direccion}}</td>
+    <td>{{l.barrio.nombre}}</td>
+    <td>{{l.obtenerVentas}}</td>
+    <td> <a href="{% url 'editar_Local_comida' l.id %}">editar</a> <br>
+      <a href="{% url 'eliminar_Local_comida' l.id %}"
+      onclick="return confirm('¿Está seguro de la eliminación?')" >
+      eliminar</a>
+    </td>
+
+  </tr>
+  {% endfor %}
+</table>
+
+<script type="text/javascript">
+  $(document).ready( function () {
+    $('#tabla_datos').DataTable();
+  });
+</script>
+{% endblock %}

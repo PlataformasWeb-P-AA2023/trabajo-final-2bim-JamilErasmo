@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Locales de Repuestos</title>
+</head>
+<body>
+    <h1>Locales de Repuestos</h1>
+    <ul>
+        {% for local in locales_repuestos %}
+            <li>
+                Propietario: {{ local.propietario.nombres }} {{ local.propietario.apellidos }}<br>
+                Dirección: {{ local.direccion }}<br>
+                Barrio: {{ local.barrio.nombre }} ({{ local.barrio.siglas }})<br>
+                Valor total de la mercadería: {{ local.valor_mercaderia }}<br>
+                Valor del pago del permiso: {{ local.valor_pago_permiso }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
