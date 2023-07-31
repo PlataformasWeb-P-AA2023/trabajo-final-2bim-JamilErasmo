@@ -21,18 +21,16 @@ from app.models import *
 from app.forms import *
 
 # Create your views here.
-def index1(request):
+def index(request):
     localComida = LocalComida.objects.all()
     diccionario = {'LocalComida': localComida, 'numero_localComida': len(localComida)}
-    return render(request, 'index1.html', diccionario)
+    return render(request, 'index.html', diccionario)
 
 def index2(request):
     localRepuesto = LocalRepuesto.objects.all()
     diccionario = {'LocalRepuestos': localRepuesto, 'numero_localRepuestos': len(localRepuesto)}
     return render(request, 'index2.html', diccionario)
 
-#
-#
 #
 
 def crear_persona(request):
@@ -41,7 +39,7 @@ def crear_persona(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save() # se guarda en la base de datos
-            return redirect(index1)
+            return redirect(index)
     else:
         formulario = PersonaForm()
     diccionario = {'formulario': formulario}
@@ -55,7 +53,7 @@ def editar_persona(request, id):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index1)
+            return redirect(index)
     else:
         formulario = PersonaForm(instance=persona)
     diccionario = {'formulario': formulario}
@@ -65,10 +63,8 @@ def editar_persona(request, id):
 def eliminar_persona(request, id):
     persona = Persona.objects.get(pk=id)
     persona.delete()
-    return redirect(index1)
+    return redirect(index)
 
-#
-#
 #
 
 def crear_barrio(request):
@@ -77,7 +73,7 @@ def crear_barrio(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index1)
+            return redirect(index)
     else:
         formulario = BarrioForm()
     diccionario = {'formulario': formulario}
@@ -91,7 +87,7 @@ def editar_barrio(request, id):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index1)
+            return redirect(index)
     else:
         formulario = BarrioForm(instance=barrio)
     diccionario = {'formulario': formulario}
@@ -101,10 +97,8 @@ def editar_barrio(request, id):
 def eliminar_barrio(request, id):
     barrio = Barrio.objects.get(pk=id)
     barrio.delete()
-    return redirect(index1)
+    return redirect(index)
 
-#
-#
 #
 
 def crear_local_comida(request):
@@ -113,7 +107,7 @@ def crear_local_comida(request):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index1)
+            return redirect(index)
     else:
         formulario = LocalComidaForm()
     diccionario = {'formulario': formulario}
@@ -127,7 +121,7 @@ def editar_local_comida(request, id):
         print(formulario.errors)
         if formulario.is_valid():
             formulario.save()
-            return redirect(index1)
+            return redirect(index)
     else:
         formulario = LocalRepuestoForm(instance=localCo)
     diccionario = {'formulario': formulario}
@@ -137,7 +131,7 @@ def editar_local_comida(request, id):
 def eliminar_local_comida(request, id):
     localCo = LocalComida.objects.get(pk=id)
     localCo.delete()
-    return redirect(index1)
+    return redirect(index)
 
 #
 #
@@ -176,8 +170,6 @@ def eliminar_local_repuestos(request, id):
     return redirect(index2)
 
 #
-#
-#
 
 def ingreso(request):
 
@@ -190,7 +182,7 @@ def ingreso(request):
             user = authenticate(username=username, password=raw_password)
             if user is not None:
                 login(request, user)
-                return redirect(index1)
+                return redirect(index)
     else:
         form = AuthenticationForm()
 
@@ -200,7 +192,7 @@ def ingreso(request):
 def logout_view(request):
     logout(request)
     messages.info(request, "Has salido del sistema")
-    return redirect(index1)
+    return redirect(index)
 
 # crear vistas a través de viewsets
 class UserViewSet(viewsets.ModelViewSet):

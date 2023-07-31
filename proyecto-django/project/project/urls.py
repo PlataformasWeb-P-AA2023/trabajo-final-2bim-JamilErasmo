@@ -27,7 +27,7 @@ router = routers.DefaultRouter()
 router.register(r'Barrio', views.BarrioViewSet)
 router.register(r'Persona', views.PersonaViewSet)
 router.register(r'localComida', views.LocalComidaViewSet)
-router.register(r'localRepuesto', views.LocalRepuestoViewSet)
+router.register(r'localRepuestos', views.LocalRepuestoViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
