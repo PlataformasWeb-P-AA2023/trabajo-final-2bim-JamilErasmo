@@ -1,8 +1,7 @@
 from django.contrib import admin
-
-# Register your models here.
 from app.models import *
 
+#El panel de administración de la aplicación Django, y también define los campos por los que se puede buscar para cada uno de estos modelos.
 class BarrioAdmin(admin.ModelAdmin):
     list_display = ('nombre', 'siglas')
     search_fields = ('nombre', 'siglas')
