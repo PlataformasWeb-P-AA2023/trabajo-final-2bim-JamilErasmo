@@ -7,7 +7,7 @@ app = Flask(__name__, template_folder='templates')
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return render_template ("master.html")
 
 
 @app.route("/Persona")
