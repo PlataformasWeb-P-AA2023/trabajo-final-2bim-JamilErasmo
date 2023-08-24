@@ -123,7 +123,7 @@ def editar_local_comida(request, id):
             formulario.save()
             return redirect(index)
     else:
-        formulario = LocalRepuestoForm(instance=localCo)
+        formulario = LocalComidaForm(instance=localCo)
     diccionario = {'formulario': formulario}
 
     return render(request, 'editar_local_comida.html', diccionario)
@@ -162,7 +162,7 @@ def editar_local_repuestos(request, id):
         formulario = LocalRepuestoForm(instance=localRe)
     diccionario = {'formulario': formulario}
 
-    return render(request, 'editar_local_repuetos.html', diccionario)
+    return render(request, 'editar_local_repuestos.html', diccionario)
 
 def eliminar_local_repuestos(request, id):
     localRe = LocalRepuesto.objects.get(pk=id)

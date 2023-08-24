@@ -49,7 +49,6 @@ class LocalRepuestoForm(ModelForm):
             'direccion': _('Ingrese la direccion'),
             'barrio': _('Seleccione el Barrio'),
             'valor': _('Ingrese el valor'),
-            'comida': _('Ingrese el tipo de comida'),
             'ventas': _('Ingrese el valor de ventas'),
-            'permido': _('Ingrese el valor del permiso'),
+            'permiso': _('Ingrese el valor del permiso'),
         }        

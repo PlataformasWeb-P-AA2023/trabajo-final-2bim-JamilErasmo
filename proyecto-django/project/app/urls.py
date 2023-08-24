@@ -14,11 +14,11 @@ urlpatterns = [
         path('editar/barrio/<int:id>', views.editar_barrio, name = 'editar_barrio'),
         path('editar/persona/<int:id>', views.editar_persona, name = 'editar_persona'),
         path('editar/local/comida/<int:id>', views.editar_local_comida, name = 'editar_local_comida'),
-        path('editar/local/respuestos/<int:id>', views.editar_local_repuestos, name = 'editar_local_respuestos'),
+        path('editar/local/repuestos/<int:id>', views.editar_local_repuestos, name = 'editar_local_repuestos'),
         path('eliminar/barrio/<int:id>', views.eliminar_barrio, name = 'eliminar_barrio'),
         path('eliminar/persona/<int:id>', views.eliminar_persona, name = 'eliminar_persona'),
         path('eliminar/local/comida/<int:id>', views.eliminar_local_comida, name = 'eliminar_local_comida'),
-        path('eliminar/local/respuestos/<int:id>', views.eliminar_local_repuestos, name = 'eliminar_local_respuestos'),
+        path('eliminar/local/repuestos/<int:id>', views.eliminar_local_repuestos, name = 'eliminar_local_repuestos'),
         
  ]
 
