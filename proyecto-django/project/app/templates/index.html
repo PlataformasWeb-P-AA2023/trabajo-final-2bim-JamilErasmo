@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<h3>Número de Locales {{ LocalComida}}</h3>
+<h3>Número de Locales {{ num_localComida}}</h3>
 
 <table id="tabla_datos">
   <thead>
@@ -30,7 +30,7 @@
     <td>{{l.obtenerVentas}}</td>
     <td> <a href="{% url 'editar_local_comida' l.id %}">editar</a> <br>
       <a href="{% url 'eliminar_local_comida' l.id %}"
-      onclick="return confirm('¿Está seguro de la eliminación?')" >
+      onclick="return confirm('¿Está seguro de eliminar?')" >
       eliminar</a>
     </td>
 

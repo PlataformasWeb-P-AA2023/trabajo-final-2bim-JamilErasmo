@@ -1,18 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.template import RequestContext
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required, permission_required
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-
-# ejemplo de uso django-rest_framework
-from django.contrib.auth.models import User, Group
-from rest_framework import viewsets
-from rest_framework import permissions
-from app.serializers import UserSerializer, GroupSerializer, \
-BarrioSerializer, PersonaSerializer, LocalComidaSerializer, LocalRepuestoSerializer
+from .models import  Barrio, LocalRepuesto, LocalComida, Persona
+from .forms import  LocalComidaForm, LocalRepuestoForm
+from django.views.generic import ListView
+from django.contrib.auth.decorators import login_required
+from .serializers import *
+from rest_framework import viewsets, permissions
 
 # importar las clases de models.py
 from app.models import *
@@ -20,15 +12,16 @@ from app.models import *
 # importar los formularios de forms.py
 from app.forms import *
 
+
 # Create your views here.
 def index(request):
     localComida = LocalComida.objects.all()
-    diccionario = {'LocalComida': localComida, 'numero_localComida': len(localComida)}
+    diccionario = {'LocalComida': localComida, 'num_localComida': len(localComida)}
     return render(request, 'index.html', diccionario)
 
 def index2(request):
     localRepuesto = LocalRepuesto.objects.all()
-    diccionario = {'LocalRepuestos': localRepuesto, 'numero_localRepuestos': len(localRepuesto)}
+    diccionario = {'LocalRepuestos': localRepuesto, 'num_localRepuesto': len(localRepuesto)}
     return render(request, 'index2.html', diccionario)
 
 #
@@ -147,7 +140,6 @@ def crear_local_repuestos(request):
     else:
         formulario = LocalRepuestoForm()
     diccionario = {'formulario': formulario}
-
     return render(request, 'crear_local_repuestos.html', diccionario)
 
 def editar_local_repuestos(request, id):

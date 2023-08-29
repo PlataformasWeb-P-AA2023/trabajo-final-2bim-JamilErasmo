@@ -13,7 +13,7 @@ class Persona(models.Model):
 class LocalComida(models.Model):
     propietario = models.ForeignKey(Persona, on_delete=models.CASCADE)
     direccion = models.CharField(max_length=50)
-    barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE)  # Cambio de Persona a Barrio
+    barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE) 
     comida = models.CharField(max_length=30)
     ventas = models.FloatField()
     permiso = models.IntegerField()
@@ -26,9 +26,8 @@ class LocalComida(models.Model):
 class LocalRepuesto(models.Model):
     propietario = models.ForeignKey(Persona, on_delete=models.CASCADE)
     direccion = models.CharField(max_length=50)
-    barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE)  # Cambio de Persona a Barrio
+    barrio = models.ForeignKey(Barrio, on_delete=models.CASCADE) 
     valor = models.IntegerField()
-    comida = models.CharField(max_length=30)
     ventas = models.IntegerField()
     permiso = models.IntegerField()
 

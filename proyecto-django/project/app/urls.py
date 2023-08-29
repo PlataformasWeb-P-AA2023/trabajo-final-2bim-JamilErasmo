@@ -1,7 +1,7 @@
-
-from django.contrib import admin
-from django.urls import path, include
 from . import views
+from django.urls import path, include
+from rest_framework import routers
+from .views import *
 
 
 urlpatterns = [
@@ -18,8 +18,7 @@ urlpatterns = [
         path('eliminar/barrio/<int:id>', views.eliminar_barrio, name = 'eliminar_barrio'),
         path('eliminar/persona/<int:id>', views.eliminar_persona, name = 'eliminar_persona'),
         path('eliminar/local/comida/<int:id>', views.eliminar_local_comida, name = 'eliminar_local_comida'),
-        path('eliminar/local/repuestos/<int:id>', views.eliminar_local_repuestos, name = 'eliminar_local_repuestos'),
-        
+        path('eliminar/local/repuestos/<int:id>', views.eliminar_local_repuestos, name = 'eliminar_local_repuestos'),      
  ]
 
 

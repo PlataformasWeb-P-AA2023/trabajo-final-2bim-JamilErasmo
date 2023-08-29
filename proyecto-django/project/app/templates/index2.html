@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<h3>Número de Locales {{ LocalRepuestos}}</h3>
+<h3>Número de Locales {{ num_localRepuesto}}</h3>
 
 <table id="tabla_datos">
 
@@ -20,7 +20,7 @@
     </tr>
   </thead>
 
-  {% for l in LocalRepuestos %}
+  {% for l in LocalRepuesto %}
   <tr>
     <td>{{l.propietario.nombre}}</td>
     <td>{{l.direccion}}</td>
@@ -29,7 +29,7 @@
     <td>{{l.obtenerVentas2}}</td>
     <td> <a href="{% url 'editar_local_repuestos' l.id %}">editar</a> <br>
       <a href="{% url 'eliminar_local_repuestos' l.id %}"
-      onclick="return confirm('¿Está seguro de la eliminación?')" >
+      onclick="return confirm('¿Está seguro de eliminar?')" >
       eliminar</a>
     </td>
 
